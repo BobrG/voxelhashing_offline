@@ -12,8 +12,8 @@
 #include "StdOutputLogger.h"
 #include "Util.h"
 
-#include "KinectSensor.h"
-#include "KinectOneSensor.h"
+//#include "KinectSensor.h"
+//#include "KinectOneSensor.h"
 #include "PrimeSenseSensor.h"
 #include "BinaryDumpReader.h"
 #include "NetworkSensor.h"

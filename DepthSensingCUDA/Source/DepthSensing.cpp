@@ -35,16 +35,16 @@ RGBDSensor* getRGBDSensor()
 	static RGBDSensor* g_sensor = NULL;
 	if (g_sensor != NULL)	return g_sensor;
 
-	if (GlobalAppState::get().s_sensorIdx == GlobalAppState::Sensor_Kinect) {
-#ifdef KINECT
-		//static KinectSensor s_kinect;
-		//return &s_kinect;
-		g_sensor = new KinectSensor;
-		return g_sensor;
-#else 
-		throw MLIB_EXCEPTION("Requires KINECT V1 SDK and enable KINECT macro");
-#endif
-	}
+//	if (GlobalAppState::get().s_sensorIdx == GlobalAppState::Sensor_Kinect) {
+//#ifdef KINECT
+//		//static KinectSensor s_kinect;
+//		//return &s_kinect;
+//		g_sensor = new KinectSensor;
+//		return g_sensor;
+//#else 
+//		throw MLIB_EXCEPTION("Requires KINECT V1 SDK and enable KINECT macro");
+//#endif
+//	}
 
 	if (GlobalAppState::get().s_sensorIdx == GlobalAppState::Sensor_PrimeSense)	{
 #ifdef OPEN_NI
@@ -416,7 +416,7 @@ void CALLBACK OnKeyboard( UINT nChar, bool bKeyDown, bool bAltDown, void* pUserC
 			if (g_chunkGrid)	g_chunkGrid->debugCheckForDuplicates();
 			break;
 		case 'D':
-			g_RGBDAdapter.getRGBDSensor()->savePointCloud("test.ply");
+			g_RGBDAdapter.getRGBDSensor()->savePointCloud("./test.ply");
 			break;
 		case 'Y':
 			{

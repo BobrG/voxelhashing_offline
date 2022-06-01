@@ -223,58 +223,93 @@ inline BinaryDataStream<BinaryDataBuffer, BinaryDataCompressor>& operator>>(Bina
 	s >> sensorData.m_VersionNumber;
 
 	if (sensorData.m_VersionNumber == 1) {
-		s >> sensorData.m_SensorName;
-		s >> sensorData.m_DepthNumFrames;
+		//s >> sensorData.m_SensorName;
+		/*s >> sensorData.m_DepthNumFrames;
+		std::cout << "m_DepthNumFrames " << sensorData.m_DepthNumFrames << std::endl;
 		s >> sensorData.m_DepthImageWidth;
+		std::cout << "m_DepthImageWidth " << sensorData.m_DepthImageWidth << std::endl;
 		s >> sensorData.m_DepthImageHeight;
+		std::cout << "m_DepthImageHeight " << sensorData.m_DepthImageHeight << std::endl;
 		s >> sensorData.m_ColorNumFrames;
+		std::cout << "m_ColorNumFrames " << sensorData.m_ColorNumFrames << std::endl;
 		s >> sensorData.m_ColorImageWidth;
+		std::cout << "m_ColorImageWidth " << sensorData.m_ColorImageWidth << std::endl;
 		s >> sensorData.m_ColorImageHeight;
+		std::cout << "m_ColorImageHeight " << sensorData.m_ColorImageHeight << std::endl;
 		s >> sensorData.m_CalibrationDepth;
+		std::cout << "m_CalibrationDepth m_Intrinsic " << sensorData.m_CalibrationDepth.m_Intrinsic << std::endl;
+		std::cout << "m_CalibrationDepth m_Extrinsic " << sensorData.m_CalibrationDepth.m_Extrinsic << std::endl;
+
 		s >> sensorData.m_CalibrationColor;
+		std::cout << "m_CalibrationColor m_Intrinsic " << sensorData.m_CalibrationColor.m_Intrinsic << std::endl;
+		std::cout << "m_CalibrationColor m_Extrinsic " << sensorData.m_CalibrationColor.m_Extrinsic << std::endl;
+		std::cout << "m_CalibrationColor m_IntrinsicInverse " << sensorData.m_CalibrationColor.m_IntrinsicInverse << std::endl;
 
 		sensorData.m_DepthImages.resize(sensorData.m_DepthNumFrames);
 		sensorData.m_ColorImages.resize(sensorData.m_ColorNumFrames);
 
 		for (size_t i = 0; i < sensorData.m_DepthImages.size(); i++) {
+			std::cout << "DEPTH" << i << std::endl;
 			sensorData.m_DepthImages[i] = new float[sensorData.m_DepthImageWidth*sensorData.m_DepthImageHeight];
 			s.readData((BYTE*)sensorData.m_DepthImages[i], sizeof(float)*sensorData.m_DepthImageWidth*sensorData.m_DepthImageHeight);
 		}
 		for (size_t i = 0; i < sensorData.m_ColorImages.size(); i++) {
+			std::cout << "IMAGE" << i << std::endl;
 			sensorData.m_ColorImages[i] = new vec4uc[sensorData.m_ColorImageWidth*sensorData.m_ColorImageHeight];
 			s.readData((BYTE*)sensorData.m_ColorImages[i], sizeof(vec4uc)*sensorData.m_ColorImageWidth*sensorData.m_ColorImageHeight);
 		}
 
 		s >> sensorData.m_ColorImagesTimeStamps;
-		s >> sensorData.m_DepthImagesTimeStamps;
+		s >> sensorData.m_DepthImagesTimeStamps;*/
 	}
 	else if (sensorData.m_VersionNumber == M_CALIBRATED_SENSOR_DATA_VERSION) {
-		s >> sensorData.m_SensorName;
+		//s >> sensorData.m_SensorName;
 		s >> sensorData.m_DepthNumFrames;
+		std::cout << "m_DepthNumFrames " << sensorData.m_DepthNumFrames << std::endl;
 		s >> sensorData.m_DepthImageWidth;
+		std::cout << "m_DepthImageWidth " << sensorData.m_DepthImageWidth << std::endl;
 		s >> sensorData.m_DepthImageHeight;
+		std::cout << "m_DepthImageHeight " << sensorData.m_DepthImageHeight << std::endl;
 		s >> sensorData.m_ColorNumFrames;
+		std::cout << "m_ColorNumFrames " << sensorData.m_ColorNumFrames << std::endl;
 		s >> sensorData.m_ColorImageWidth;
+		std::cout << "m_ColorImageWidth " << sensorData.m_ColorImageWidth << std::endl;
 		s >> sensorData.m_ColorImageHeight;
+		std::cout << "m_ColorImageHeight " << sensorData.m_ColorImageHeight << std::endl;
 		s >> sensorData.m_CalibrationDepth;
+		std::cout << "m_CalibrationDepth m_Intrinsic " << sensorData.m_CalibrationDepth.m_Intrinsic << std::endl;
+		std::cout << "m_CalibrationDepth m_Extrinsic " << sensorData.m_CalibrationDepth.m_Extrinsic << std::endl;
+
 		s >> sensorData.m_CalibrationColor;
+		std::cout << "m_CalibrationColor m_Intrinsic " << sensorData.m_CalibrationColor.m_Intrinsic << std::endl;
+		std::cout << "m_CalibrationColor m_Extrinsic " << sensorData.m_CalibrationColor.m_Extrinsic << std::endl;
+		std::cout << "m_CalibrationColor m_IntrinsicInverse " << sensorData.m_CalibrationColor.m_IntrinsicInverse << std::endl;
+
 
 		sensorData.m_DepthImages.resize(sensorData.m_DepthNumFrames);
 		sensorData.m_ColorImages.resize(sensorData.m_ColorNumFrames);
 
 		for (size_t i = 0; i < sensorData.m_DepthImages.size(); i++) {
+			std::cout << "DEPTH" << i << std::endl;
 			sensorData.m_DepthImages[i] = new float[sensorData.m_DepthImageWidth*sensorData.m_DepthImageHeight];
 			s.readData((BYTE*)sensorData.m_DepthImages[i], sizeof(float)*sensorData.m_DepthImageWidth*sensorData.m_DepthImageHeight);
 		}
 		for (size_t i = 0; i < sensorData.m_ColorImages.size(); i++) {
+			std::cout << "IMAGE" << i << std::endl;
 			sensorData.m_ColorImages[i] = new vec4uc[sensorData.m_ColorImageWidth*sensorData.m_ColorImageHeight];
 			s.readData((BYTE*)sensorData.m_ColorImages[i], sizeof(vec4uc)*sensorData.m_ColorImageWidth*sensorData.m_ColorImageHeight);
 		}
 
+		std::cout << "Reading timestamps" << std::endl;
+
 		s >> sensorData.m_ColorImagesTimeStamps;
+
+		std::cout << "ColorImagesTimeStamps" << sensorData.m_ColorImagesTimeStamps << std::endl;
 		s >> sensorData.m_DepthImagesTimeStamps;
+		std::cout << "DepthImagesTimeStamps" << sensorData.m_DepthImagesTimeStamps << std::endl;
 
 		s >> sensorData.m_trajectory;
+		std::cout << "Trajectory" << sensorData.m_trajectory << std::endl;
 	} else {
 		throw MLIB_EXCEPTION("Calibrated Sensor Data: Invalid file version");
 	}

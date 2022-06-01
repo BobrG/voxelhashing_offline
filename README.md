@@ -45,7 +45,7 @@ void extractIsoSurfaceAtPosition(const float3& worldPos, const HashData& hashDat
 Examples of reconstruction:
 VoxelSize 1cm MC Thresh 2             |  VoxelSize 1cm MC Thresh 10             |  VoxelSize 1cm MC Thresh 20
 :-------------------------:|:-------------------------:|:-------------------------:
-![](./imgs/voxelsize1cm_mcthresh2.png)  |  ![](./imgs/voxelsize1cm_mcthresh10.png)  |  ![](./imgs/voxelsize1cm_mcthresh20.png)
+![](./examples/voxelsize1cm_mcthresh2)  |  ![](./examples/voxelsize1cm_mcthresh10)  |  ![](./examples/voxelsize1cm_mcthresh20)
 
 * s_SDFTruncation -- truncation for SDF (defined with respect ot the depth value so the range is defined around each depth pixel), defined in meter (5.0f*s_SDFVoxelSize) & works with s_SDFTruncationScale parameter
 * s_SDFTruncationScale  -- truncation scale in meter per meter (2.5f*s_SDFVoxelSize); Part of the code that represent behavior:

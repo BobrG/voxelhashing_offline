@@ -268,7 +268,7 @@ void RGBDSensor::savePointCloud( const std::string& filename, const mat4f& trans
 			pc.m_colors.push_back(c);
 		}
 	}
-
+	std::cout << "saving " << filename << std::endl;
 	PointCloudIOf::saveToFile(filename, pc);
 }
 
